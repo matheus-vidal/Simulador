@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/style.css">
+</head>
+<body>
+    <main>
+        <h1>Simulador de FIIs</h1>
+
+        <article>
+            <section class="dados" id="dad_bas">
+                <h2>Dados Básicos</h2>
+                <p>
+                    <span class="material-symbols-outlined">payments</span>
+                    <input type="number" name="preco" id="preco" placeholder="Preço (mensal) estimado: R$" step="0.1"onkeypress="sense(event, pro=1)">
+                </p>
+
+                <p>
+                    <span class="material-symbols-outlined">currency_exchange</span>
+                    <input type="number" name="dividendos" id="dividendos" placeholder="Dividendo (mensal) estimado: R$" step="0.1" onkeypress="sense(event, pro=2)">
+                </p>
+
+                <p>
+                    <span class="material-symbols-outlined">event</span>
+                    <input type="number" name="fiicompradosm1" id="fiicompradosm1" placeholder="FIIs Comprados no primeiro mês:" onkeypress="sense(event, pro=3)">
+                </p>
+
+                <p>
+                    <span class="material-symbols-outlined">event_repeat</span>
+                    <input type="number" name="fiicompradosmx" id="fiicompradosmx" placeholder="FIIs comprados no restante dos meses:" onkeypress="sense(event, pro=4)">
+                </p>
+
+                <p>
+                    <span class="material-symbols-outlined">calendar_month</span>
+                    <input type="number" name="mesesapli" id="mesesapli" placeholder="Meses aplicados: (de 1 a 1000)" onkeypress="sense(event, pro=5)">
+                </p>
+            </section>
+
+            <section class="dados" id="dad_sim">
+                <h2>Dados da Simulação</h2>
+                <p>
+                    <label for="varpre">Variação de Preço (mensal) do FII:</label>
+                    <select name="varpre" id="varpre">
+                        <option value="0">Sem variação</option>
+                        <option value="1">Até 1% de variação</option>
+                        <option value="2">Até 2% de variação</option>
+                        <option value="3">Até 3% de variação</option>
+                        <option value="4">Até 4% de variação</option>
+                        <option value="5">Até 5% de variação</option>
+                        <option value="10">Até 10% de variação</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="vardiv">Variação de Preço (mensal) do Dividendo:</label>
+                    <select name="vardiv" id="vardiv">
+                        <option value="0">Sem variação</option>
+                        <option value="1">Até 1% de variação</option>
+                        <option value="2">Até 2% de variação</option>
+                        <option value="3">Até 3% de variação</option>
+                        <option value="4">Até 4% de variação</option>
+                        <option value="5">Até 5% de variação</option>
+                        <option value="10">Até 10% de variação</option>
+                    </select>
+                </p>
+                <p>
+                    Usar os dividendos para comprar novos fundos:
+                    <span>
+                        <input type="radio" name="compra" id="sim" checked><label for="sim"> Sim</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="compra" id="nao"><label for="nao"> Não</label>
+                    </span>
+                </p>
+                <p>
+                    Como Mostrar os Dados:
+                    <span>
+                        <input type="radio" name="output" id="tabmen" checked>
+                        <label for="tabmen">Tabela mensal</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="output" id="tabanu">
+                        <label for="tabanu">Tabela anual</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="output" id="resumo">
+                        <label for="resumo">Dados resumidos</label>
+                    </span>
+                </p>
+            </section>
+            
+            <div id="bot">
+                <input type="submit" value="Simular" onclick="simular()">
+                <input type="button" value="Limpar todos os dados" onclick="limpar()">
+            </div>
+            
+            <section id="resultados">
+            
+            </section>
+        </article>
+
+        <script src="vali_resu.js"></script>
+        <script src="limpdado_sense.js"></script>
+    </main>
+</body>
+</html>
